@@ -1,0 +1,331 @@
+/* =========================================================
+   BASE
+   ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: block; /* Vite default is flex + centered, which shrinks #root */
+  min-width: 320px;
+  text-align: left;
+}
+
+#root {
+  max-width: none;
+  border: 0;
+  text-align: left;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+.auth-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at 50% 20%, #e9ebf2, #cfd2dc);
+  font-family: "Manrope", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   SHELL (mobile: single column)
+   ========================================================= */
+.auth-phone {
+  width: 100%;
+  max-width: 380px;
+  padding: 20px;
+  border-radius: 42px;
+  background: #1c1c1e;
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(30, 30, 60, 0.35);
+}
+
+/* ---------- Lime hero ---------- */
+.auth-hero {
+  position: relative;
+  min-height: 270px;
+  padding: 22px;
+  border-radius: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #1a1d0a;
+  background: repeating-radial-gradient(
+    circle at 12% 105%,
+    #d6f45f 0,
+    #eaff94 42px,
+    #d6f45f 84px
+  );
+}
+
+.auth-bolt {
+  color: #111;
+}
+
+.auth-hero-text {
+  margin: 18px;
+}
+
+.auth-title {
+  margin: 0;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.auth-sub {
+  margin: 4px 0 14px;
+  font-size: 14px;
+  opacity: 0.65;
+}
+
+.auth-chips {
+  display: inline-flex;
+  gap: 2px;
+  margin: 2px 8px;
+}
+
+.auth-chips span {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(66, 76, 24, 0.62);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.auth-chips span + span {
+  padding-left: 18px;
+}
+
+/* White arrow with a "cut-out" ring */
+.auth-arrow {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  font-size: 24px;
+  box-shadow: 0 0 0 10px #1c1c1e;
+}
+
+/* ---------- Heading ---------- */
+.auth-heading {
+  margin: 28px 4px 16px;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 38px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+/* ---------- Blue form panel ---------- */
+.auth-panel {
+  padding: 20px 18px 18px;
+  border-radius: 30px;
+  background: linear-gradient(160deg, #7284fa, #5f71f3);
+}
+
+.auth-field {
+  display: block;
+  margin: 0 0 14px;
+  font-size: 13px;
+}
+
+.auth-field span {
+  display: block;
+  margin: 0 0 6px 6px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.auth-field input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 14px 18px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(30, 36, 120, 0.35);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.auth-field input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.auth-field input:focus {
+  border-color: #dcf76f;
+  background: rgba(30, 36, 120, 0.5);
+}
+
+/* ---------- Sign in button ---------- */
+.auth-panel .auth-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  margin: 18px 0 0;
+  padding: 0 20px;
+  border: none;
+  border-radius: 50px;
+  background: #1c1c1e;
+  color: #fff;
+  font-family: "Syne", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: none;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.auth-panel .auth-submit:hover:not(:disabled) {
+  background: #dcf76f;
+  color: #1c1c1e;
+  transform: translateY(-2px);
+}
+
+.auth-panel .auth-submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.auth-panel .auth-submit:focus-visible {
+  outline: 3px solid #dcf76f;
+  outline-offset: 3px;
+}
+
+.auth-panel .auth-submit:disabled {
+  background: #333335;
+  color: #aaa;
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------- Error alert ---------- */
+.auth-panel .alert.error {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: #1c1c1e;
+  color: #ffd9d9;
+  border: 0;
+}
+
+.auth-panel .alert.error p {
+  margin: 4px 0 0;
+}
+
+.auth-panel .alert.error ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+/* =========================================================
+   SMALL PHONES: fill the screen
+   ========================================================= */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 0;
+    background: #1c1c1e;
+  }
+
+  .auth-phone {
+    max-width: none;
+    min-height: 100vh;
+    min-height: 100svh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* =========================================================
+   DESKTOP (900px+): same style, two columns
+   ========================================================= */
+@media (min-width: 900px) {
+  .auth-page {
+    padding: 40px;
+  }
+
+  .auth-phone {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1000px;
+    padding: 28px;
+    border-radius: 52px;
+  }
+
+  .auth-hero {
+    min-height: 540px;
+    padding: 28px;
+    border-radius: 40px;
+  }
+
+  .auth-title {
+    font-size: 44px;
+  }
+
+  .auth-sub {
+    font-size: 16px;
+  }
+
+  .auth-chips span {
+    font-size: 13px;
+  }
+
+  .auth-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 12px;
+  }
+
+  .auth-heading {
+    margin: 0 4px 20px;
+    font-size: 46px;
+  }
+
+  .auth-panel {
+    padding: 28px 24px 24px;
+    border-radius: 34px;
+  }
+}
